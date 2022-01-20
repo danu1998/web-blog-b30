@@ -1,0 +1,302 @@
+<html lang="en">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../public/assets/css/style.css" />
+    <title>Personal Web</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="/"><img
+            src="../public/assets/images/brandred.png"
+            alt=""
+            width="40"
+            height="34"
+          /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active text_orange"
+                aria-current="page"
+                href="/"
+              >Home</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="/blog"
+              >Blogs</a>
+            </li>
+          </ul>
+          {{#if isLogin}}
+            <ul class="navbar-nav ms-auto mb-lg-0">
+              <li class="nav-item">
+                <span class="nav-link">Hello, {{user.name}}</span>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="/logout"
+                >Logout</a>
+              </li>
+            </ul>
+          {{else}}
+            <ul class="navbar-nav ms-auto mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="/login"
+                >Login</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="/register"
+                >Register</a>
+              </li>
+            </ul>
+          {{/if}}
+          <form class="d-flex">
+            <a
+              href="/contact"
+              class="btn text-white btn_orange px-3 mt-3"
+              type="submit"
+            >
+              Contact Me
+            </a>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="main_section">
+      <div class="container">
+        <div class="main">
+          <div class="d-flex justify-content-start align-items-center">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="card" style="max-width: 20rem;">
+                  <img
+                    src="../public/assets/images/my_image.jpg"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h3 class="card-text">Danu Prakoso</h3>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur
+                      adipisicing elit. Tempora quam repellendus saepe
+                      reiciendis distinctio dicta, odio quisquam. Odio, non
+                      dolorum?</p>
+                    <table class="table">
+                      <thead>
+                        <th>Experience</th>
+                        <th>Year</th>
+                        <th>Skill</th>
+                      </thead>
+                      <tbody>
+                        {{#each exper}}
+                          <tr>
+                            <td class="table_text">{{this.name_project}}</td>
+                            <td class="table_text">{{this.year_project}}</td>
+                            <td class="table_text">HTML,CSS</td>
+                          </tr>
+                        {{/each}}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-9">
+                <div class="card border-0">
+                  <div class="card-body">
+                    <h3>What I DO ?</h3>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Nam quibusdam enim dolor inventore error molestiae, quae
+                      mollitia, sunt ullam suscipit doloribus fugiat sit rerum
+                      corrupti quidem voluptate et nulla, perspiciatis iusto
+                      amet assumenda alias. Delectus cum reiciendis veritatis
+                      quasi harum!
+                    </p>
+                    <div
+                      class="d-flex justify-content-between align-items-center mt-4"
+                    >
+                      <div class="row">
+                        <div class="col">
+                          <div class="card border-0" style="width: 18rem;">
+                            <img
+                              src="../public/assets/images/js_logo.png"
+                              class="card-img-top"
+                              alt="..."
+                              style="max-width: 3rem;"
+                            />
+                            <h5 class="mt-2">Front End Developer</h5>
+                            <div class="card-body">
+                              <p class="card-text">Some quick example text to
+                                build on the card title and make up the bulk of
+                                the card's content.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="card border-0" style="width: 18rem;">
+                            <img
+                              src="../public/assets/images/git_logo.png"
+                              class="card-img-top"
+                              alt="..."
+                              style="max-width: 3rem;"
+                            />
+                            <h5 class="mt-2">Version Control</h5>
+                            <div class="card-body">
+                              <p class="card-text">Some quick example text to
+                                build on the card title and make up the bulk of
+                                the card's content.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="card border-0" style="width: 18rem;">
+                            <img
+                              src="../public/assets/images/deploy_logo.png"
+                              class="card-img-top"
+                              alt="..."
+                              style="max-width: 3rem;"
+                            />
+                            <h5 class="mt-2">Automated Deployment</h5>
+                            <div class="card-body">
+                              <p class="card-text">Some quick example text to
+                                build on the card title and make up the bulk of
+                                the card's content.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <h3 class="mt-4">Found Me On</h3>
+                    <div class="d-flex justify-content-between mt-4">
+                      <div class="row">
+                        <div
+                          class="col-sm"
+                          style="background-color: #fff; height: 48px; width: 48px;
+                          border-radius: 100%;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);"
+                        >
+                          <a
+                            href="https://www.facebook.com/"
+                            style="color: #777777;
+                            font-size: 24px"
+                          ><i class="bx bxl-facebook"></i></a>
+                        </div>
+                        <div
+                          class="col-sm"
+                          style="background-color: #fff; height: 48px; width: 48px;
+                          border-radius: 100%;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+                          margin-left: 20px"
+                        >
+                          <a
+                            href="https://www.instagram.com"
+                            style="color: #777777;
+                            font-size: 24px"
+                          ><i class="bx bxl-instagram-alt"></i></a>
+                        </div>
+                        <div
+                          class="col-sm"
+                          style="background-color: #fff; height: 48px; width: 48px;
+                          border-radius: 100%;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+                           margin-left: 20px"
+                        >
+                          <a
+                            href="https://www.twitter.com"
+                            style="color: #777777;
+                            font-size: 24px"
+                          ><i class="bx bxl-twitter"></i></a>
+                        </div>
+                        <div
+                          class="col-sm"
+                          style="background-color: #fff; height: 48px; width: 48px;
+                          border-radius: 100%;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+                           margin-left: 20px"
+                        >
+                          <a
+                            href="https://www.gmail.com"
+                            style="color: #777777;
+                            font-size: 24px"
+                          ><i class="bx bxl-gmail"></i></a>
+                        </div>
+                        <div
+                          class="col-sm"
+                          style="background-color: #fff; height: 48px; width: 48px;
+                          border-radius: 100%;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+                           margin-left: 20px"
+                        >
+                          <a
+                            href="https://www.whatsapp.com"
+                            style="color: #777777;
+                            font-size: 24px"
+                          ><i class="bx bxl-whatsapp"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../public/assets/js/style.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
